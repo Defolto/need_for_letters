@@ -1,0 +1,96 @@
+body{
+    position: relative;
+}
+
+.modal{
+    position: absolute;
+    z-index: 3;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(32, 32, 32, 0.8);
+    display: flex;
+    animation: openModal .2s linear forwards;
+
+    &__in{
+        margin: auto;
+        padding: 10px 20px;
+        width: 30%;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 1px 5px 3px rgba(243, 243, 243, 0.2);
+
+        .bb{
+            padding-bottom: 5px;
+            border-bottom: 1px solid #000;
+
+            span{
+                cursor: pointer;
+                font-size: 24px;
+                font-weight: 600;
+                transition: .3s;
+
+                &:hover{
+                    color: rgb(53, 145, 250);
+                }
+            }
+
+            .active__input{
+                color: rgba(22,97,181,1);
+            }
+        }
+
+        .close{
+            cursor: pointer;
+            margin-left: auto !important;
+        }
+
+        p{
+            margin: 0;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+
+        input{
+            border: none;
+            border-bottom: 2px solid #000;
+            font-size: 18px;
+            padding: 5px 0;
+            transition: .2s;
+
+            &:focus{
+                outline: none;
+                border-bottom: 2px solid rgba(22,97,181,1);
+            }
+        }
+
+        button{
+            width: 40%;
+            font-size: 18px;
+            margin: 22px auto 0px;
+            background: linear-gradient(180deg, #69cdfd 0%, #4db8ef 48%);
+            box-shadow: 0px 4px 10px -3px #4db8ef;
+            border-radius: 8px;
+            padding: 10px 0px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover{
+                transform: translateY(-2px);
+                border-radius: 14px;
+            }
+        }
+    }
+}
+
+@keyframes openModal{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

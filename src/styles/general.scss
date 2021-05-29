@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+    font-style: 500;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+    p{
+        font-family: "Montserrat";
+    }
+}
+
+.ml-a{
+    margin-left: auto;
+}
+
+.col-50{
+    width: 50%;
+}
+
+.d-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.d-column{
+    display: flex;
+    flex-direction: column;
+}
