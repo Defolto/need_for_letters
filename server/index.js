@@ -19,21 +19,35 @@ app.get('/', (req, res) => {
 
 app.post('/api/regNewUser', function(request, response){
     if (typeof(request.body.data.newUser) == "object") {
-        db_users.insert(request.body.data.newUser);
-        response.json(request.body.data.newUser);
+        let newUser = {
+            email:  request.body.data.newUser.email,
+            login: request.body.data.newUser.login,
+            password: request.body.data.newUser.password,
+            coin: 0,
+            regData: new Date(),
+            maxSpeed: 0,
+            countWrittenLetters: 0,
+            averageSpeed_graf: [],
+            errorsLetters_graf: [],
+            countLettersFor7Days_graf: []
+        }
+        db_users.insert(newUser);
+        response.json(newUser);
     } else {
         response.json("error");
     }
 });
 
 app.post('/api/logIn', function(request, response){
+    console.log(request.body.data.user);
     db_users.findOne({ $or: [{email: request.body.data.user.email}, {login: request.body.data.user.email}]}, function (err, docs) {
         if(!err) {
             if (request.body.data.user.password == docs.password) {
                 response.json(docs);
             }
-        }else{
-            console.log("Акк нет");
+            else{
+                console.log("Нет аккаунта");
+            }
         }
     });
 });

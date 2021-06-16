@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/general.scss'
 import '../styles/header.scss'
-import circle from '../img/circle.png'
+import coin from '../img/coin.png'
 
 export class Header extends React.Component{
     
@@ -23,15 +23,12 @@ export class Header extends React.Component{
                     </div>
                     <div className="header-infoUser d-column">
                         <div className="header-infoUser__top d-row">
-                            <p className="name">Имя</p>
-                            <img className="avatar" src={circle}/>
+                            <p className="name">{this.props.userInfo.login}</p>
                         </div>
                         <div className="header-infoUser__bottom d-row">
-                            <p>lvl</p>
-                            <p> / </p>
                             <div className="money d-row">
                                 <p>1234</p>
-                                <img className="coin" src={circle}/>
+                                <img className="coin" src={coin}/>
                             </div>
                         </div>
                     </div>

@@ -45,7 +45,8 @@ export class Modal extends React.Component{
         }
     }
 
-    regNewUser(){
+    regNewUser(){ 
+        const writeData = this.props.hoba;
         if (this.state.regPassword1 == this.state.regPassword2) {
             fetch('/api/regNewUser', {
                 method: 'POST',
@@ -64,7 +65,12 @@ export class Modal extends React.Component{
             })
             .then(res => res.json())
             .then(res => {
-                console.log(res);
+                if (res == "error") {
+                    console.log("Сбой сервера");
+                } else {
+                    console.log(res);
+                    writeData(res);
+                }
             });
         } else {
             alert("Не верно")
@@ -72,6 +78,7 @@ export class Modal extends React.Component{
     }
 
     logIn(){
+        console.log("Попытка войти");
         const writeData = this.props.hoba;
         fetch('/api/logIn', {
             method: 'POST',
@@ -124,9 +131,9 @@ export class Modal extends React.Component{
                         </div>
                         <div className="d-column">
                             <p>Email</p>
-                            <input type="email" value={this.state.regLogin} onChange={this.inputData} name="regEmail"/>
+                            <input type="email" value={this.state.regEmail} onChange={this.inputData} name="regEmail"/>
                             <p>Логин</p>
-                            <input type="text" name="regLogin" value={this.state.regEmail} onChange={this.inputData}/>
+                            <input type="text" name="regLogin" value={this.state.regLogin} onChange={this.inputData}/>
                             <p>Пароль</p>
                             <input type="text" name="regPassword1" value={this.state.regPassword1} onChange={this.inputData}/>
                             <p>Повторите пароль</p>

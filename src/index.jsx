@@ -46,7 +46,7 @@ class NFL extends React.Component{
         return(
             <Fragment>
                 {this.state.modal ? <Modal hoba={this.writeDataUser} closeModal={this.open_close__Modal} /> : ''}
-                <Header openModal={this.open_close__Modal} entry={this.state.registerd}/>
+                <Header openModal={this.open_close__Modal} entry={this.state.registerd} userInfo={this.state.user}/>
                 <Menu/>
             </Fragment>
         )
