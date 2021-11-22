@@ -1,52 +1,39 @@
 import React from 'react'
-import '../styles/general.scss'
-import '../styles/header.scss'
-import coin from '../img/coin.png'
+import '../style/header.scss'
+import gamburger from '../img/gamburger.png'
+import avatar from '../img/avatar.png'
 
-export class Header extends React.Component{
-    
+/** Основной компонент*/
+export default class Header extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
 
-        this.state={
-            
         }
     }
-
+    
     render(){
-        if (this.props.entry) {
-            return(
-                <header className="header d-row">
-                    <div className="header-logo d-column">
-                        <h1>NFL</h1>
-                        <h2>need for letters</h2>
+        let user;
+        if (this.props.regUser) {
+            user = <div className="user">
+                        <p>Defolto</p>
+                        <img src={avatar} alt="аватар" />
                     </div>
-                    <div className="header-infoUser d-column">
-                        <div className="header-infoUser__top d-row">
-                            <p className="name">{this.props.userInfo.login}</p>
-                        </div>
-                        <div className="header-infoUser__bottom d-row">
-                            <div className="money d-row">
-                                <p>1234</p>
-                                <img className="coin" src={coin}/>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            )
         } else {
-            return(
-                <header className="header d-row">
-                    <div className="header-logo d-column">
-                        <h1>NFL</h1>
-                        <h2>need for letters</h2>
+            user = <div className="user">
+                        <p onClick={()=>this.props.modal("login")}>Войти</p>
+                        <p onClick={()=>this.props.modal("reg")}>Зарегистрироваться</p>
                     </div>
-                    <div className="header-infoUser d-row">
-                        <button onClick={()=>this.props.openModal()}>Регистрация / Вход</button>
-                    </div>
-                </header>
-            )
         }
-        
+
+        return(
+            <header>
+                <div className="menu">
+                    <img onClick={()=>this.props.openMenu()} src={gamburger} alt="меню" />
+                </div>
+                <h1>Название</h1>
+                {user}
+            </header>
+        )
     }
 }

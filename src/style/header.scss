@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-bottom: 1px solid #000;
+
+    .menu{
+        margin: auto 0;
+        cursor: pointer;
+
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    h1{
+        margin: 0 auto;
+    }
+
+    .user{
+        display: flex;
+        flex-direction: row;
+        margin: auto 0;
+
+        p{
+            margin: auto 0;
+            margin-right: 10px;
+        }
+
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
